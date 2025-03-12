@@ -1,8 +1,5 @@
 package org.example.jpa1;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.faces.application.FacesMessage;
-import jakarta.faces.context.FacesContext;
 import models.Address;
 import models.Student;
 import dao.StudentDao;
@@ -21,7 +18,6 @@ public class StudentBean {
     private Student editingStudent;
     private Address address = new Address();
     private String Recherche;
-    int i=1;
 
     public StudentBean() {
         loadStudents();
@@ -45,7 +41,6 @@ public class StudentBean {
     public List<Student> getStudents() {
         return students;
     }
-
     public void setStudents(List<Student> students) {
         this.students = students;
     }
@@ -69,13 +64,6 @@ public class StudentBean {
         }
     }
 
-    public Student getEditingStudent() {
-        return editingStudent;
-    }
-
-    public void setEditingStudent(Student editingStudent) {
-        this.editingStudent = editingStudent;
-    }
     public String startEditing(Student stud) {
         this.editingStudent = new Student(stud.getCne(),stud.getName(), stud.getEmail(), stud.getBirthday());
         return null;
@@ -89,13 +77,9 @@ public class StudentBean {
         try {
             Student dbStudent = studentDao.getStudent(editingStudent.getCne());
             if (dbStudent != null) {
-                dbStudent.setName(editingStudent.getName());
-                dbStudent.setEmail(editingStudent.getEmail());
-                dbStudent.setBirthday(editingStudent.getBirthday());
                 studentDao.updateStudent(dbStudent);
             }
         } catch (Exception e) {
-            System.err.println("Error updating student: " + e.getMessage());
             e.printStackTrace();
             return null;
         } finally {

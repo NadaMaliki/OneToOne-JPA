@@ -13,13 +13,11 @@ public class Address {
     public Address() {
     }
 
-    public Address(String street, String city, String state) {
         this.street = street;
         this.city = city;
         this.state = state;
     }
 
-    @Id
     public String getStreet() {
         return street;
     }
@@ -39,8 +37,6 @@ public class Address {
         this.state = state;
     }
 
-    @OneToOne
-//    @JoinColumn(name = "cne", referencedColumnName = "cne")
     public Student getStudent() {
         return student;
     }

@@ -48,7 +48,6 @@ public class Student {
     public int getCne() {
         return cne;
     }
-
     public void setCne(int cne) {
         this.cne = cne;
     }
@@ -56,7 +55,6 @@ public class Student {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -64,7 +62,6 @@ public class Student {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -72,7 +69,6 @@ public class Student {
     public LocalDate getBirthday() {
         return birthday;
     }
-
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
@@ -90,7 +86,6 @@ public class Student {
         this.note = Note;
     }
 
-    @OneToOne(mappedBy = "student")
     public Address getAddress() {
         return address;
     }
@@ -104,6 +99,5 @@ public class Student {
         }
         return 0;
     }
-
 
 }
