@@ -70,14 +70,17 @@ public class Main {
 
         address.setStudent(student);
         address2.setStudent(student2);
-        filiere.setStudents(students);
-        student2.setAddress(address2);
-        student.setFiliere(filiere);
-        student2.setFiliere(filiere);
-        student.setCourses(courses);
+
         student.setAddress(address);
+        student2.setAddress(address2);
+
+        student2.setFiliere(filiere);
+        student.setFiliere(filiere);
+
+        student.setCourses(courses);
+        student2.setCourses(courses);
+
         studentDao.add_Student(student);
-        studentDao.add_Student(student2);
 
         emf.close();
     }

@@ -28,6 +28,7 @@ public class Student {
     private Address address;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "filiere_id", referencedColumnName = "id")
     private Filiere filiere;
 
     @ManyToMany(cascade = CascadeType.ALL)
