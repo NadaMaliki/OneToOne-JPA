@@ -7,6 +7,8 @@
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>models.Student</class>
         <class>models.Address</class>
+        <class>models.Courses</class>
+        <class>models.Filiere</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

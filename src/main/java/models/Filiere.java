@@ -14,6 +14,7 @@ public class Filiere {
     private String description;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "filiere_id", referencedColumnName = "id")
     private List<Student> students;
 
     public Filiere() {

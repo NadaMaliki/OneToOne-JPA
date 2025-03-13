@@ -3,6 +3,7 @@ package models;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.List;
 
 @Entity(name="Student")
 @Table(name="student")
@@ -23,9 +24,18 @@ public class Student {
     private int niveau;
     private double note;
 
+    @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Filiere filiere;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "student_courses",
+            joinColumns = @JoinColumn(name = "student_cne"),
+            inverseJoinColumns = @JoinColumn(name = "course_id")
+    )    private List<Courses> courses;
 
     public Student() {}
 
@@ -92,6 +102,21 @@ public class Student {
     public void setAddress(Address address) {
         this.address = address;
     }
+
+    public List<Courses> getCourses() {
+        return courses;
+    }
+    public void setCourses(List<Courses> courses) {
+        this.courses = courses;
+    }
+
+    public Filiere getFiliere() {
+        return filiere;
+    }
+    public void setFiliere(Filiere filiere) {
+        this.filiere = filiere;
+    }
+
 
     public int getAge() {
         if (birthday != null) {
